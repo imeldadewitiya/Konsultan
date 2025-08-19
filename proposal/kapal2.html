@@ -7,8 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Lato:wght@400;700&display=swap');
+        
+        /* --- Gaya untuk Tampilan Layar (Screen) --- */
         body {
             font-family: 'Lato', sans-serif;
+            background-color: #f3f4f6; /* Latar belakang abu-abu untuk layar */
         }
         .kop-surat-title {
             font-family: 'Times New Roman', serif;
@@ -31,26 +34,95 @@
         .page-container {
             max-width: 8.5in;
             min-height: 11in;
-            margin: auto;
+            margin: 2rem auto; /* Memberi jarak atas-bawah di layar */
             padding: 1in;
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
+
+        /* --- Gaya Khusus untuk Cetak (Print) --- */
         @media print {
+            /* Sembunyikan elemen yang tidak perlu dicetak */
+            body > *:not(.page-container) {
+                display: none;
+            }
+
+            /* Atur ulang body untuk mode cetak */
             body {
-                background-color: #fff;
-            }
-            .page-container {
-                box-shadow: none;
+                background-color: white !important;
                 margin: 0;
-                padding: 0.75in;
+                padding: 0;
             }
+
+            /* Atur kontainer dokumen agar memenuhi halaman PDF */
+            .page-container {
+                max-width: none !important;
+                width: 100% !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 1.2cm !important; /* Memberi margin seperti dokumen Word */
+                box-shadow: none !important;
+                border: none !important;
+                /* Setel ukuran font dasar untuk seluruh dokumen saat dicetak */
+                font-family: 'Times New Roman', serif; /* Font standar untuk dokumen formal */
+                font-size: 12pt; /* Ukuran standar dokumen */
+                line-height: 1.5; /* Spasi 1.5 baris */
+                color: black;
+            }
+
+            /* Atur ulang ukuran heading agar proporsional */
+            .page-container .kop-surat-title {
+                font-size: 14pt;
+            }
+            
+            .page-container .content-section h2 {
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-bottom: 1px solid black;
+                padding-bottom: 2px;
+                margin-top: 24pt;
+                margin-bottom: 12pt;
+            }
+            
+            .page-container .content-section h3 {
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                font-weight: bold;
+            }
+
+            /* Hindari judul terpisah dari paragraf pertamanya */
+            .page-container h2,
+            .page-container h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            /* Atur teks tabel agar lebih rapat */
+            .page-container th,
+            .page-container td {
+                font-size: 10pt;
+                padding: 4px 6px;
+                border: 1px solid #ccc;
+            }
+            .page-container thead {
+                background-color: #f2f2f2 !important;
+                -webkit-print-color-adjust: exact; /* Memaksa print background di Chrome/Safari */
+                print-color-adjust: exact; /* Standar */
+            }
+
+            /* Hapus class tailwind yang tidak diperlukan saat print */
+            .text-justify { text-align: justify !important; }
+            .font-bold { font-weight: bold !important; }
+            .underline { text-decoration: underline !important; }
+            .mt-2 { margin-top: 0.5rem !important; }
         }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <div class="page-container my-8">
+    <div class="page-container">
         <!-- KOP SURAT -->
         <header class="flex items-center space-x-4 pb-4 border-b-4 border-black">
             <img src="https://uisi.ac.id/wp-content/uploads/2020/07/logo-uisi-samping.png" alt="Logo UISI" class="h-20">
@@ -58,7 +130,6 @@
                 <h1 class="kop-surat-title font-bold text-xl uppercase">UNIVERSITAS INTERNASIONAL SEMEN INDONESIA</h1>
                 <p class="kop-surat-title font-semibold text-lg">Business Development</p>
                 <p class="text-sm">Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik, Jawa Timur 61122</p>
-                <p class="text-sm">Telepon: (031) 3985482 | Email: business.dev@uisi.ac.id | Website: www.uisi.ac.id</p>
             </div>
         </header>
 
@@ -67,15 +138,15 @@
             <div class="grid grid-cols-2 gap-4 mb-8">
                 <div>
                     <table>
-                        <tr><td class="pr-2 align-top">Nomor</td><td>: 046/P-FS/BD-UISI/VIII/2025</td></tr>
-                        <tr><td class="pr-2 align-top">Lampiran</td><td>: 1 (Satu) Berkas</td></tr>
-                        <tr><td class="pr-2 align-top">Perihal</td><td class="font-bold">: Penawaran Jasa Konsultansi Penyusunan Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik KMP Bawean</td></tr>
+                        <tr><td class="pr-2 align-top">Nomor</td><td class="align-top">:</td><td>047/P-FS/BD-UISI/VIII/2025</td></tr>
+                        <tr><td class="pr-2 align-top">Lampiran</td><td class="align-top">:</td><td>1 (Satu) Berkas</td></tr>
+                        <tr><td class="pr-2 align-top">Perihal</td><td class="align-top">:</td><td class="font-bold">Penawaran Jasa Konsultansi Penyusunan Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang</td></tr>
                     </table>
                 </div>
-                <div class="text-right">
+                <div class="text-left">
                     Gresik, 20 Agustus 2025
                     <br><br>
-                    <p class="font-bold">Kepada Yth.<br>Bapak H. Fandi Akhmad Yani, S.E.<br>Bupati Gresik</p>
+                    <p>Kepada Yth.<br><span class="font-bold">Kepala Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah (Bappeda) Kabupaten Gresik</span></p>
                     <p>di Tempat</p>
                 </div>
             </div>
@@ -83,73 +154,74 @@
             <!-- ISI PROPOSAL -->
             <div class="space-y-6 text-justify">
                 <p>Dengan hormat,</p>
-                <p>Menindaklanjuti program strategis Pemerintah Kabupaten (Pemkab) Gresik terkait pembentukan Koperasi Merah Putih (KMP) di 356 desa dan rencana pengembangan <strong>Konsorsium Koperasi Merah Putih Bawean</strong>, kami dari Divisi Business Development Universitas Internasional Semen Indonesia (UISI) bermaksud mengajukan penawaran jasa konsultansi untuk melaksanakan <strong>Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik</strong>.</p>
+                <p>Sehubungan dengan agenda rapat koordinasi bersama Badan Riset dan Inovasi Daerah (BRIDA) dan Bappeda Kabupaten Gresik mengenai usulan penelitian dan kajian yang mendukung program strategis Koperasi Merah Putih (KMP), serta diskusi awal mengenai kebutuhan penguatan konektivitas Gresik-Bawean, kami dari Divisi Business Development Universitas Internasional Semen Indonesia (UISI) dengan ini mengajukan proposal penawaran jasa konsultansi untuk melaksanakan <strong>Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang</strong>.</p>
 
                 <section class="content-section">
-                    <h2>1. LATAR BELAKANG</h2>
-                    <p>Konektivitas logistik antara daratan Gresik dan Pulau Bawean merupakan faktor vital bagi pertumbuhan ekonomi dan kesejahteraan masyarakat. Rencana pengadaan kapal logistik di bawah Konsorsium KMP Bawean adalah langkah strategis untuk menjamin ketersediaan barang kebutuhan pokok, menstabilkan harga, serta membuka akses pasar yang lebih luas bagi produk unggulan dari Bawean. Untuk memastikan rencana besar ini berjalan secara terukur, efektif, dan berkelanjutan, diperlukan sebuah Studi Kelayakan yang komprehensif sebagai landasan pengambilan keputusan investasi dan operasional.</p>
+                    <h2>1. Latar Belakang</h2>
+                    <p>Program Koperasi Merah Putih (KMP) yang diinisiasi oleh Pemkab Gresik memiliki tujuan mulia untuk kemandirian ekonomi desa. Salah satu elemen krusial untuk menyukseskan program ini, khususnya bagi masyarakat di Pulau Bawean, adalah kelancaran arus distribusi barang. Ketergantungan pada moda transportasi yang ada saat ini seringkali menjadi kendala dalam menjaga stabilitas harga, ketersediaan pasokan (pupuk, sembako, dll.), dan pengiriman produk lokal ke pasar utama.</p>
+                    <p class="mt-2">Untuk menjawab tantangan tersebut, rencana pengadaan sebuah <strong>kapal yang didedikasikan khusus untuk angkutan logistik dan barang (bukan kapal penumpang/ferry)</strong> menjadi sangat strategis. Namun, investasi ini memerlukan dasar perencanaan yang matang. Oleh karena itu, sebuah studi kelayakan yang komprehensif mutlak diperlukan untuk memetakan potensi, menganalisis risiko, dan merumuskan model bisnis yang paling efektif sebelum Pemkab Gresik menyusun Kerangka Acuan Kerja (KAK) dan mata anggaran definitif.</p>
                 </section>
 
                 <section class="content-section">
-                    <h2>2. MAKSUD DAN TUJUAN</h2>
-                    <p><strong>Maksud</strong> dari penawaran ini adalah untuk menyajikan proposal teknis pelaksanaan jasa konsultansi penyusunan Studi Kelayakan Pengadaan Kapal Logistik KMP Bawean.</p>
-                    <p class="mt-2"><strong>Tujuan</strong> utama dari pelaksanaan studi kelayakan ini adalah untuk memberikan jawaban dan rekomendasi yang berbasis data atas pertanyaan-pertanyaan fundamental, meliputi:</p>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Mengidentifikasi <strong>tujuan strategis pengadaan kapal</strong>, baik dari sisi ekonomi (efisiensi biaya logistik, peningkatan perdagangan) maupun sosial (ketahanan pangan, stabilitas harga).</li>
-                        <li>Menganalisis dan mengukur tingkat <strong>kelayakan proyek</strong> dari berbagai aspek (pasar, teknis, operasional, keuangan, hukum, dan lingkungan).</li>
-                        <li>Menyediakan <strong>dasar pengambilan keputusan</strong> yang solid bagi Pemkab Gresik dalam mengalokasikan sumber daya.</li>
-                        <li>Menyusun dokumen studi yang <strong>kredibel dan bankable</strong> sebagai lampiran utama proposal pengajuan pembiayaan.</li>
+                    <h2>2. Maksud dan Tujuan</h2>
+                    <p><strong>Maksud</strong> dari penawaran ini adalah untuk melaksanakan jasa kajian dan analisis mendalam guna mengukur kelayakan rencana pengadaan kapal logistik barang rute Gresik-Bawean.</p>
+                    <p class="mt-2"><strong>Tujuan</strong> dari pelaksanaan studi kelayakan ini adalah:</p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Menyediakan analisis yang tajam dan berbasis data sebagai landasan utama bagi Pemkab Gresik dalam pengambilan keputusan investasi.</li>
+                        <li>Memberikan rekomendasi spesifikasi teknis kapal logistik yang paling efisien dan sesuai dengan kebutuhan riil serta kondisi infrastruktur pelabuhan.</li>
+                        <li>Merumuskan model bisnis dan operasional yang paling layak, baik dari sisi kelembagaan pengelola maupun aspek keuangan.</li>
+                        <li>Menyusun dokumen studi yang kredibel (bankable) sebagai prasyarat utama untuk pengajuan anggaran dan pencarian mitra pembiayaan.</li>
                     </ul>
                 </section>
                 
                 <section class="content-section">
-                    <h2>3. RUANG LINGKUP PEKERJAAN</h2>
-                    <p>Untuk mencapai tujuan di atas, studi kelayakan ini akan mencakup analisis mendalam yang menjawab isu-isu krusial berikut:</p>
+                    <h2>3. Ruang Lingkup Pekerjaan</h2>
+                    <p>Studi kelayakan ini akan memberikan jawaban dan rekomendasi berbasis data atas pertanyaan-pertanyaan fundamental yang akan menjadi dasar penyusunan KAK, meliputi:</p>
                     
-                    <h3>3.1. Aspek Pasar dan Ekonomi</h3>
-                    <ul class="list-disc list-inside ml-4 text-sm space-y-1">
-                        <li>Analisis permintaan angkutan barang (komoditas, volume, dan frekuensi) dari dan ke Bawean.</li>
-                        <li>Proyeksi pertumbuhan permintaan dan dampak ekonomi terhadap PDRB Gresik.</li>
-                        <li>Analisis struktur tarif yang kompetitif dan berkelanjutan.</li>
+                    <h3>3.1. Analisis Pasar dan Proyeksi Permintaan</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li>Identifikasi dan kuantifikasi potensi muatan utama (inbound & outbound): sembako, produk pertanian, perikanan, pupuk, bahan bangunan, dan produk UMKM.</li>
+                        <li>Proyeksi volume muatan (demand forecasting) untuk 5-10 tahun ke depan.</li>
+                        <li>Analisis struktur tarif angkutan yang kompetitif dan berkelanjutan.</li>
                     </ul>
 
-                    <h3>3.2. Aspek Teknis dan Operasional</h3>
-                    <ul class="list-disc list-inside ml-4 text-sm space-y-1">
-                        <li><strong>Analisis Spesifikasi dan Pengadaan Kapal:</strong> Kajian mendalam untuk menentukan spesifikasi teknis kapal yang paling optimal, termasuk <strong>penentuan tonase bobot mati (DWT)</strong> yang sesuai dengan volume muatan dan kondisi perairan. Studi ini juga akan menganalisis opsi pengadaan antara <strong>pembelian kapal baru atau kapal bekas layak pakai</strong>, dengan mempertimbangkan aspek biaya investasi, umur teknis, biaya perawatan, dan ketersediaan di pasar.</li>
-                        <li><strong>Kajian Infrastruktur Pendukung:</strong> Mengingat kondisi dermaga di Bawean yang relatif kecil, studi akan melakukan analisis mendalam mengenai kebutuhan <strong>perluasan dermaga dan pendalaman alur pelayaran</strong>. Ini termasuk estimasi biaya dan kelayakan teknis untuk memastikan kapal dapat beroperasi dengan aman dan efisien.</li>
-                        <li><strong>Rencana Operasional:</strong> Penyusunan rute pelayaran, jadwal, manajemen bongkar muat, serta kebutuhan bahan bakar dan pemeliharaan.</li>
+                    <h3>3.2. Analisis Teknis dan Operasional</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li><strong>Rekomendasi Spesifikasi Kapal Logistik:</strong> Kajian untuk menentukan jenis dan ukuran kapal barang (General Cargo, LCT, atau lainnya) yang paling sesuai, termasuk kapasitas optimal dalam <strong>Deadweight Tonnage (DWT)</strong>.</li>
+                        <li><strong>Opsi Pengadaan Kapal:</strong> Analisis komparatif antara pengadaan <strong>kapal baru vs. kapal bekas</strong>, menimbang aspek biaya investasi awal, umur teknis, dan biaya operasional jangka panjang.</li>
+                        <li><strong>Kajian Infrastruktur Pelabuhan:</strong> Evaluasi kesiapan dermaga di Gresik dan Bawean. Jika diperlukan, studi akan memberikan rekomendasi awal terkait kebutuhan <strong>perluasan dermaga atau pengerukan alur</strong>.</li>
                     </ul>
 
-                    <h3>3.3. Aspek Manajemen dan Hukum</h3>
-                    <ul class="list-disc list-inside ml-4 text-sm space-y-1">
-                        <li><strong>Analisis Skema Kelembagaan Operator:</strong> Studi ini akan memberikan rekomendasi mengenai entitas bisnis yang akan mengelola kapal. Apakah Pemkab akan menunjuk BUMD yang sudah ada, atau perlu <strong>mendirikan PT baru</strong> yang memiliki <strong>Surat Izin Usaha Perusahaan Angkutan Laut (SIUPPAL)</strong>. Analisis ini mencakup perbandingan kelebihan dan kekurangan dari setiap opsi.</li>
-                        <li><strong>Identifikasi Perizinan:</strong> Pemetaan seluruh perizinan yang dibutuhkan mulai dari SIUPPAL, persetujuan trayek, hingga sertifikasi kelaiklautan kapal.</li>
-                        <li><strong>Struktur Organisasi:</strong> Rekomendasi struktur manajemen operasional kapal, termasuk kebutuhan SDM dan kualifikasinya.</li>
+                    <h3>3.3. Analisis Kelembagaan dan Hukum</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li><strong>Model Kelembagaan Pengelola:</strong> Memberikan rekomendasi skema pengelolaan, apakah melalui BUMD yang sudah ada, membentuk konsorsium Koperasi Sekunder, atau perlu <strong>mendirikan sebuah PT (Perseroda) baru</strong> yang memiliki <strong>Surat Izin Usaha Perusahaan Angkutan Laut (SIUPPAL)</strong>.</li>
+                        <li><strong>Pemetaan Perizinan:</strong> Identifikasi seluruh izin yang diperlukan untuk operasional kapal dan badan usaha sesuai peraturan yang berlaku.</li>
                     </ul>
 
-                    <h3>3.4. Aspek Keuangan</h3>
-                    <ul class="list-disc list-inside ml-4 text-sm space-y-1">
-                        <li>Estimasi total biaya investasi (kapal, modifikasi dermaga, perizinan, modal kerja).</li>
-                        <li>Proyeksi laporan keuangan (laba rugi, arus kas, neraca) untuk 10 tahun ke depan.</li>
-                        <li>Analisis kelayakan investasi (Net Present Value, Internal Rate of Return, Payback Period, dan Benefit-Cost Ratio).</li>
-                        <li>Analisis sensitivitas terhadap berbagai variabel risiko (harga BBM, volume muatan, dll.).</li>
+                    <h3>3.4. Analisis Finansial dan Kelayakan Ekonomi</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li>Estimasi detail atas biaya investasi dan modal kerja.</li>
+                        <li>Proyeksi pendapatan, biaya operasional, dan profitabilitas (Laba Rugi, Arus Kas).</li>
+                        <li>Perhitungan indikator kelayakan investasi (NPV, IRR, Payback Period, B/C Ratio).</li>
+                        <li>Analisis dampak ekonomi dan sosial (social return) bagi masyarakat.</li>
                     </ul>
                 </section>
                 
                 <section class="content-section">
-                    <h2>4. KELUARAN (OUTPUT)</h2>
-                    <p>Hasil akhir dari pekerjaan ini adalah sebuah dokumen <strong>"Laporan Akhir Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik KMP Bawean"</strong> yang komprehensif, mencakup seluruh analisis pada ruang lingkup di atas, beserta ringkasan eksekutif dan rekomendasi strategis.</p>
+                    <h2>4. Keluaran (Output)</h2>
+                    <p>Hasil akhir dari pekerjaan ini adalah sebuah dokumen <strong>"Laporan Akhir Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang Gresik-Bawean"</strong>, yang akan menjadi dokumen rujukan utama bagi Bappeda dan OPD terkait dalam menyusun perencanaan dan penganggaran program.
+                    </p>
                 </section>
 
                 <section class="content-section">
-                    <h2>5. PENUTUP</h2>
-                    <p>Demikian proposal penawaran ini kami sampaikan sebagai bentuk komitmen UISI untuk turut serta dalam pembangunan daerah. Kami percaya bahwa melalui studi yang mendalam dan objektif, rencana pengadaan kapal logistik ini dapat direalisasikan dengan sukses dan memberikan manfaat maksimal bagi masyarakat Gresik, khususnya di Pulau Bawean.</p>
-                    <p class="mt-2">Kami siap untuk memberikan penjelasan lebih lanjut dan berdiskusi mengenai proposal ini. Atas perhatian dan kepercayaan Bapak, kami ucapkan terima kasih.</p>
+                    <h2>5. Penutup</h2>
+                    <p>Demikian proposal ini kami sampaikan sebagai bentuk inisiatif dan kesiapan kami untuk mendukung Pemkab Gresik dalam mewujudkan program strategis yang berdampak langsung bagi kesejahteraan masyarakat. Kami yakin, studi yang terstruktur akan mempertajam rencana dan memastikan setiap rupiah anggaran yang dialokasikan memberikan manfaat maksimal.</p>
+                    <p class="mt-2">Atas perhatian dan kesempatan yang diberikan, kami ucapkan terima kasih.</p>
                 </section>
 
                  <!-- TANDA TANGAN -->
-                <div class="pt-12">
-                    <div class="float-right w-1/3 text-center">
+                <div class="pt-16">
+                    <div class="float-right w-2/5 text-left">
                         <p>Hormat kami,</p>
                         <p class="font-bold">Universitas Internasional Semen Indonesia</p>
                         <div class="h-24"></div> <!-- Spasi untuk tanda tangan -->
