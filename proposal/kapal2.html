@@ -8,13 +8,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Lato:wght@400;700&display=swap');
         
+        /* --- Definisi Warna Brand UISI --- */
+        :root {
+            --uisi-red: #D81F2A;
+            --uisi-gray: #58595B;
+        }
+
         /* --- Gaya untuk Tampilan Layar (Screen) --- */
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #f3f4f6; /* Latar belakang abu-abu untuk layar */
+            background-color: #f3f4f6;
         }
         .kop-surat-title {
             font-family: 'Times New Roman', serif;
+        }
+        .header-border {
+            border-bottom: 4px solid var(--uisi-red);
         }
         .content-section h2 {
             font-family: 'Lato', sans-serif;
@@ -23,6 +32,7 @@
             margin-bottom: 1rem;
             border-bottom: 2px solid #E5E7EB;
             padding-bottom: 0.5rem;
+            color: var(--uisi-red); /* Warna Merah pada Judul Seksi */
         }
         .content-section h3 {
             font-family: 'Lato', sans-serif;
@@ -30,11 +40,12 @@
             font-size: 1.1rem;
             margin-top: 1rem;
             margin-bottom: 0.5rem;
+            color: var(--uisi-gray); /* Warna Abu-abu pada Sub-judul */
         }
         .page-container {
             max-width: 8.5in;
             min-height: 11in;
-            margin: 2rem auto; /* Memberi jarak atas-bawah di layar */
+            margin: 2rem auto;
             padding: 1in;
             background: white;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -42,39 +53,38 @@
 
         /* --- Gaya Khusus untuk Cetak (Print) --- */
         @media print {
-            /* Sembunyikan elemen yang tidak perlu dicetak */
             body > *:not(.page-container) {
                 display: none;
             }
-
-            /* Atur ulang body untuk mode cetak */
             body {
                 background-color: white !important;
                 margin: 0;
                 padding: 0;
             }
-
-            /* Atur kontainer dokumen agar memenuhi halaman PDF */
             .page-container {
                 max-width: none !important;
                 width: 100% !important;
                 min-height: 0 !important;
                 margin: 0 !important;
-                padding: 1.2cm !important; /* Memberi margin seperti dokumen Word */
+                padding: 1.2cm !important;
                 box-shadow: none !important;
                 border: none !important;
-                /* Setel ukuran font dasar untuk seluruh dokumen saat dicetak */
-                font-family: 'Times New Roman', serif; /* Font standar untuk dokumen formal */
-                font-size: 12pt; /* Ukuran standar dokumen */
-                line-height: 1.5; /* Spasi 1.5 baris */
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                line-height: 1.5;
                 color: black;
             }
-
-            /* Atur ulang ukuran heading agar proporsional */
-            .page-container .kop-surat-title {
-                font-size: 14pt;
+            .header-border {
+                border-bottom: 4px solid var(--uisi-red) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-            
+            .kop-surat-title {
+                font-size: 14pt;
+                color: var(--uisi-gray) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
             .page-container .content-section h2 {
                 font-family: 'Times New Roman', serif;
                 font-size: 12pt;
@@ -84,39 +94,24 @@
                 padding-bottom: 2px;
                 margin-top: 24pt;
                 margin-bottom: 12pt;
+                color: var(--uisi-red) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-            
             .page-container .content-section h3 {
                 font-family: 'Times New Roman', serif;
                 font-size: 12pt;
                 font-weight: bold;
+                color: var(--uisi-gray) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-
-            /* Hindari judul terpisah dari paragraf pertamanya */
-            .page-container h2,
-            .page-container h3 {
+            h2, h3 {
                 page-break-after: avoid;
                 break-after: avoid;
             }
-
-            /* Atur teks tabel agar lebih rapat */
-            .page-container th,
-            .page-container td {
-                font-size: 10pt;
-                padding: 4px 6px;
-                border: 1px solid #ccc;
-            }
-            .page-container thead {
-                background-color: #f2f2f2 !important;
-                -webkit-print-color-adjust: exact; /* Memaksa print background di Chrome/Safari */
-                print-color-adjust: exact; /* Standar */
-            }
-
-            /* Hapus class tailwind yang tidak diperlukan saat print */
             .text-justify { text-align: justify !important; }
             .font-bold { font-weight: bold !important; }
-            .underline { text-decoration: underline !important; }
-            .mt-2 { margin-top: 0.5rem !important; }
         }
     </style>
 </head>
@@ -124,18 +119,18 @@
 
     <div class="page-container">
         <!-- KOP SURAT -->
-        <header class="flex items-center space-x-4 pb-4 border-b-4 border-black">
-            <img src="https://uisi.ac.id/wp-content/uploads/2020/07/logo-uisi-samping.png" alt="Logo UISI" class="h-20">
-            <div class="text-center flex-grow">
-                <h1 class="kop-surat-title font-bold text-xl uppercase">UNIVERSITAS INTERNASIONAL SEMEN INDONESIA</h1>
-                <p class="kop-surat-title font-semibold text-lg">Business Development</p>
-                <p class="text-sm">Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik, Jawa Timur 61122</p>
+        <header class="flex items-center space-x-6 pb-4 header-border">
+            <img src="https://i.ibb.co/6yYJcW5/logo-uisi-new.png" alt="Logo UISI" class="h-24">
+            <div class="flex-grow">
+                <h1 class="kop-surat-title font-bold text-2xl" style="color: var(--uisi-gray);">UNIVERSITAS INTERNASIONAL SEMEN INDONESIA</h1>
+                <p class="kop-surat-title font-semibold text-xl" style="color: var(--uisi-gray);">Business Development</p>
+                <p class="text-xs" style="color: var(--uisi-gray);">Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kebomas, Gresik, Jawa Timur 61122</p>
             </div>
         </header>
 
         <main class="mt-8">
             <!-- INFORMASI SURAT -->
-            <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="grid grid-cols-2 gap-8 mb-8">
                 <div>
                     <table>
                         <tr><td class="pr-2 align-top">Nomor</td><td class="align-top">:</td><td>047/P-FS/BD-UISI/VIII/2025</td></tr>
@@ -218,18 +213,6 @@
                     <p>Demikian proposal ini kami sampaikan sebagai bentuk inisiatif dan kesiapan kami untuk mendukung Pemkab Gresik dalam mewujudkan program strategis yang berdampak langsung bagi kesejahteraan masyarakat. Kami yakin, studi yang terstruktur akan mempertajam rencana dan memastikan setiap rupiah anggaran yang dialokasikan memberikan manfaat maksimal.</p>
                     <p class="mt-2">Atas perhatian dan kesempatan yang diberikan, kami ucapkan terima kasih.</p>
                 </section>
-
-                 <!-- TANDA TANGAN -->
-                <div class="pt-16">
-                    <div class="float-right w-2/5 text-left">
-                        <p>Hormat kami,</p>
-                        <p class="font-bold">Universitas Internasional Semen Indonesia</p>
-                        <div class="h-24"></div> <!-- Spasi untuk tanda tangan -->
-                        <p class="font-bold underline">Dr. Eng. Ir. Fery Erawan, S.T., M.T.</p>
-                        <p>Head of Business Development</p>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
             </div>
         </main>
     </div>
