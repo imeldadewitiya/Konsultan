@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Studi Kelayakan Pengadaan Kapal Logistik KMP Bawean</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Lato:wght@400;700&display=swap');
+        
+        /* --- Definisi Warna Brand UISI --- */
+        :root {
+            --uisi-red: #D81F2A;
+            --uisi-gray: #58595B;
+        }
+
+        /* --- Gaya untuk Tampilan Layar (Screen) --- */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .kop-surat-title {
+            font-family: 'Times New Roman', serif;
+        }
+        .header-border {
+            border-bottom: 4px solid var(--uisi-red);
+        }
+        .content-section h2 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #E5E7EB;
+            padding-bottom: 0.5rem;
+            color: var(--uisi-red); /* Warna Merah pada Judul Seksi */
+        }
+        .content-section h3 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--uisi-gray); /* Warna Abu-abu pada Sub-judul */
+        }
+        .page-container {
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 2rem auto;
+            padding: 1in;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Gaya Khusus untuk Cetak (Print) --- */
+        @media print {
+            body > *:not(.page-container) {
+                display: none;
+            }
+            body {
+                background-color: white !important;
+                margin: 0;
+                padding: 0;
+            }
+            .page-container {
+                max-width: none !important;
+                width: 100% !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 1.2cm !important;
+                box-shadow: none !important;
+                border: none !important;
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                line-height: 1.5;
+                color: black;
+            }
+            .header-border {
+                border-bottom: 4px solid var(--uisi-red) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .kop-surat-title {
+                font-size: 14pt;
+                color: var(--uisi-gray) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container .content-section h2 {
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-bottom: 1px solid black;
+                padding-bottom: 2px;
+                margin-top: 24pt;
+                margin-bottom: 12pt;
+                color: var(--uisi-red) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container .content-section h3 {
+                font-family: 'Times New Roman', serif;
+                font-size: 12pt;
+                font-weight: bold;
+                color: var(--uisi-gray) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            .text-justify { text-align: justify !important; }
+            .font-bold { font-weight: bold !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="page-container">
+        <!-- KOP SURAT -->
+        <header class="flex items-center space-x-6 pb-4 header-border">
+            <img src="https://i.ibb.co/6yYJcW5/logo-uisi-new.png" alt="Logo UISI" class="h-24">
+            <div class="flex-grow">
+                <h1 class="kop-surat-title font-bold text-2xl" style="color: var(--uisi-gray);">UNIVERSITAS INTERNASIONAL SEMEN INDONESIA</h1>
+                <p class="kop-surat-title font-semibold text-xl" style="color: var(--uisi-gray);">Business Development</p>
+                <p class="text-xs" style="color: var(--uisi-gray);">Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kebomas, Gresik, Jawa Timur 61122</p>
+            </div>
+        </header>
+
+        <main class="mt-8">
+            <!-- INFORMASI SURAT -->
+            <div class="grid grid-cols-2 gap-8 mb-8">
+                <div>
+                    <table>
+                        <tr><td class="pr-2 align-top">Nomor</td><td class="align-top">:</td><td>047/P-FS/BD-UISI/VIII/2025</td></tr>
+                        <tr><td class="pr-2 align-top">Lampiran</td><td class="align-top">:</td><td>1 (Satu) Berkas</td></tr>
+                        <tr><td class="pr-2 align-top">Perihal</td><td class="align-top">:</td><td class="font-bold">Penawaran Jasa Konsultansi Penyusunan Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang</td></tr>
+                    </table>
+                </div>
+                <div class="text-left">
+                    Gresik, 20 Agustus 2025
+                    <br><br>
+                    <p>Kepada Yth.<br><span class="font-bold">Kepala Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah (Bappeda) Kabupaten Gresik</span></p>
+                    <p>di Tempat</p>
+                </div>
+            </div>
+
+            <!-- ISI PROPOSAL -->
+            <div class="space-y-6 text-justify">
+                <p>Dengan hormat,</p>
+                <p>Sehubungan dengan agenda rapat koordinasi bersama Badan Riset dan Inovasi Daerah (BRIDA) dan Bappeda Kabupaten Gresik mengenai usulan penelitian dan kajian yang mendukung program strategis Koperasi Merah Putih (KMP), serta diskusi awal mengenai kebutuhan penguatan konektivitas Gresik-Bawean, kami dari Divisi Business Development Universitas Internasional Semen Indonesia (UISI) dengan ini mengajukan proposal penawaran jasa konsultansi untuk melaksanakan <strong>Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang</strong>.</p>
+
+                <section class="content-section">
+                    <h2>1. Latar Belakang</h2>
+                    <p>Program Koperasi Merah Putih (KMP) yang diinisiasi oleh Pemkab Gresik memiliki tujuan mulia untuk kemandirian ekonomi desa. Salah satu elemen krusial untuk menyukseskan program ini, khususnya bagi masyarakat di Pulau Bawean, adalah kelancaran arus distribusi barang. Ketergantungan pada moda transportasi yang ada saat ini seringkali menjadi kendala dalam menjaga stabilitas harga, ketersediaan pasokan (pupuk, sembako, dll.), dan pengiriman produk lokal ke pasar utama.</p>
+                    <p class="mt-2">Untuk menjawab tantangan tersebut, rencana pengadaan sebuah <strong>kapal yang didedikasikan khusus untuk angkutan logistik dan barang (bukan kapal penumpang/ferry)</strong> menjadi sangat strategis. Namun, investasi ini memerlukan dasar perencanaan yang matang. Oleh karena itu, sebuah studi kelayakan yang komprehensif mutlak diperlukan untuk memetakan potensi, menganalisis risiko, dan merumuskan model bisnis yang paling efektif sebelum Pemkab Gresik menyusun Kerangka Acuan Kerja (KAK) dan mata anggaran definitif.</p>
+                </section>
+
+                <section class="content-section">
+                    <h2>2. Maksud dan Tujuan</h2>
+                    <p><strong>Maksud</strong> dari penawaran ini adalah untuk melaksanakan jasa kajian dan analisis mendalam guna mengukur kelayakan rencana pengadaan kapal logistik barang rute Gresik-Bawean.</p>
+                    <p class="mt-2"><strong>Tujuan</strong> dari pelaksanaan studi kelayakan ini adalah:</p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Menyediakan analisis yang tajam dan berbasis data sebagai landasan utama bagi Pemkab Gresik dalam pengambilan keputusan investasi.</li>
+                        <li>Memberikan rekomendasi spesifikasi teknis kapal logistik yang paling efisien dan sesuai dengan kebutuhan riil serta kondisi infrastruktur pelabuhan.</li>
+                        <li>Merumuskan model bisnis dan operasional yang paling layak, baik dari sisi kelembagaan pengelola maupun aspek keuangan.</li>
+                        <li>Menyusun dokumen studi yang kredibel (bankable) sebagai prasyarat utama untuk pengajuan anggaran dan pencarian mitra pembiayaan.</li>
+                    </ul>
+                </section>
+                
+                <section class="content-section">
+                    <h2>3. Ruang Lingkup Pekerjaan</h2>
+                    <p>Studi kelayakan ini akan memberikan jawaban dan rekomendasi berbasis data atas pertanyaan-pertanyaan fundamental yang akan menjadi dasar penyusunan KAK, meliputi:</p>
+                    
+                    <h3>3.1. Analisis Pasar dan Proyeksi Permintaan</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li>Identifikasi dan kuantifikasi potensi muatan utama (inbound & outbound): sembako, produk pertanian, perikanan, pupuk, bahan bangunan, dan produk UMKM.</li>
+                        <li>Proyeksi volume muatan (demand forecasting) untuk 5-10 tahun ke depan.</li>
+                        <li>Analisis struktur tarif angkutan yang kompetitif dan berkelanjutan.</li>
+                    </ul>
+
+                    <h3>3.2. Analisis Teknis dan Operasional</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li><strong>Rekomendasi Spesifikasi Kapal Logistik:</strong> Kajian untuk menentukan jenis dan ukuran kapal barang (General Cargo, LCT, atau lainnya) yang paling sesuai, termasuk kapasitas optimal dalam <strong>Deadweight Tonnage (DWT)</strong>.</li>
+                        <li><strong>Opsi Pengadaan Kapal:</strong> Analisis komparatif antara pengadaan <strong>kapal baru vs. kapal bekas</strong>, menimbang aspek biaya investasi awal, umur teknis, dan biaya operasional jangka panjang.</li>
+                        <li><strong>Kajian Infrastruktur Pelabuhan:</strong> Evaluasi kesiapan dermaga di Gresik dan Bawean. Jika diperlukan, studi akan memberikan rekomendasi awal terkait kebutuhan <strong>perluasan dermaga atau pengerukan alur</strong>.</li>
+                    </ul>
+
+                    <h3>3.3. Analisis Kelembagaan dan Hukum</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li><strong>Model Kelembagaan Pengelola:</strong> Memberikan rekomendasi skema pengelolaan, apakah melalui BUMD yang sudah ada, membentuk konsorsium Koperasi Sekunder, atau perlu <strong>mendirikan sebuah PT (Perseroda) baru</strong> yang memiliki <strong>Surat Izin Usaha Perusahaan Angkutan Laut (SIUPPAL)</strong>.</li>
+                        <li><strong>Pemetaan Perizinan:</strong> Identifikasi seluruh izin yang diperlukan untuk operasional kapal dan badan usaha sesuai peraturan yang berlaku.</li>
+                    </ul>
+
+                    <h3>3.4. Analisis Finansial dan Kelayakan Ekonomi</h3>
+                    <ul class="list-disc list-inside ml-4 text-sm">
+                        <li>Estimasi detail atas biaya investasi dan modal kerja.</li>
+                        <li>Proyeksi pendapatan, biaya operasional, dan profitabilitas (Laba Rugi, Arus Kas).</li>
+                        <li>Perhitungan indikator kelayakan investasi (NPV, IRR, Payback Period, B/C Ratio).</li>
+                        <li>Analisis dampak ekonomi dan sosial (social return) bagi masyarakat.</li>
+                    </ul>
+                </section>
+                
+                <section class="content-section">
+                    <h2>4. Keluaran (Output)</h2>
+                    <p>Hasil akhir dari pekerjaan ini adalah sebuah dokumen <strong>"Laporan Akhir Studi Kelayakan (Feasibility Study) Pengadaan Kapal Logistik Barang Gresik-Bawean"</strong>, yang akan menjadi dokumen rujukan utama bagi Bappeda dan OPD terkait dalam menyusun perencanaan dan penganggaran program.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h2>5. Penutup</h2>
+                    <p>Demikian proposal ini kami sampaikan sebagai bentuk inisiatif dan kesiapan kami untuk mendukung Pemkab Gresik dalam mewujudkan program strategis yang berdampak langsung bagi kesejahteraan masyarakat. Kami yakin, studi yang terstruktur akan mempertajam rencana dan memastikan setiap rupiah anggaran yang dialokasikan memberikan manfaat maksimal.</p>
+                    <p class="mt-2">Atas perhatian dan kesempatan yang diberikan, kami ucapkan terima kasih.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
