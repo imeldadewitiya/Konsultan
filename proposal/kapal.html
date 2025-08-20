@@ -85,6 +85,16 @@
                 border-left-color: var(--uisi-red) !important;
                 color: var(--uisi-gray) !important;
             }
+            
+            /* --- PERBAIKAN AGAR TIDAK TERPOTONG --- */
+            .section-title, .subsection-title {
+                page-break-after: avoid; /* Mencegah halaman baru setelah judul */
+            }
+            
+            .brand-box, .alur-tahapan, .border {
+                page-break-inside: avoid; /* Mencegah elemen ini terpotong di tengahnya */
+            }
+            /* ------------------------------------ */
         }
     </style>
 </head>
