@@ -107,6 +107,12 @@
             padding: 0 0.5rem;
         }
 
+        .gantt-bar {
+            background-color: #fca5a5 !important; /* Warna Merah Muda */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
         @media print {
             body {
                 background-color: white !important;
@@ -282,14 +288,20 @@
 
                     <div class="brand-box">
                         <p class="font-bold text-base mb-2">4. Prastudi Kelayakan: Kajian Finansial</p>
-                        <p class="text-sm text-justify">Pilar ini menguji kelayakan proyek dari sisi keuangan secara kuantitatif. Kami akan menyusun model proyeksi keuangan yang detail, dengan asumsi utama pengadaan **kapal baru** berkapasitas **3.000 - 5.000 DWT**. Analisis akan mencakup estimasi biaya investasi (CAPEX), biaya operasional (OPEX), dan proyeksi arus kas (cash flow) selama umur ekonomis proyek. Kelayakan investasi akan diukur secara rinci menggunakan metode-metode berikut:
-                        <ul class="list-disc pl-5 mt-2 text-sm">
-                            <li><strong>Net Present Value (NPV):</strong> Untuk mengukur selisih nilai sekarang dari arus kas masuk dengan nilai investasi.</li>
-                            <li><strong>Internal Rate of Return (IRR):</strong> Untuk menentukan tingkat pengembalian investasi proyek.</li>
-                            <li><strong>Payback Period (PP):</strong> Untuk menghitung waktu yang dibutuhkan agar investasi kembali.</li>
-                            <li><strong>Profitability Index (PI):</strong> Untuk mengukur rasio perbandingan antara nilai sekarang dari arus kas masa depan dengan nilai investasi awal.</li>
-                        </ul>
-                        </p>
+                        <p class="text-sm text-justify">Pilar ini menguji kelayakan proyek dari sisi keuangan secara kuantitatif. Kami akan menyusun model proyeksi keuangan yang detail, dengan asumsi utama pengadaan **kapal baru** berkapasitas **3.000 - 5.000 DWT**. Analisis akan mencakup estimasi biaya investasi (CAPEX), biaya operasional (OPEX), dan proyeksi arus kas (cash flow) selama umur ekonomis proyek. Kelayakan investasi akan diukur secara rinci menggunakan metode-metode standar sebagai berikut:</p>
+                        
+                        <!-- Blok Rumus Finansial -->
+                        <div class="mt-4 p-4 bg-white rounded border border-gray-200 text-sm" style="font-family: 'Courier New', monospace;">
+                            <p class="font-semibold">a. Net Present Value (NPV)</p>
+                            <p class="mt-1">NPV = &Sigma; [CF<sub>t</sub> / (1+r)<sup>t</sup>] - C<sub>0</sub></p>
+                            <p class="text-xs mt-1 text-gray-600">Dimana: CF<sub>t</sub> = Arus Kas pada Periode t, r = Suku Bunga Diskon, t = Periode Waktu, C<sub>0</sub> = Investasi Awal</p>
+                            
+                            <p class="font-semibold mt-3">b. Internal Rate of Return (IRR)</p>
+                            <p class="mt-1">0 = &Sigma; [CF<sub>t</sub> / (1+IRR)<sup>t</sup>] - C<sub>0</sub></p>
+                            <p class="text-xs mt-1 text-gray-600">IRR adalah tingkat diskon (r) yang menghasilkan NPV sama dengan nol.</p>
+                            
+                            <p class="font-semibold mt-3">c. Payback Period (PP) & Profitability Index (PI)</p>
+                        </div>
                     </div>
 
                     <div class="brand-box">
@@ -301,47 +313,60 @@
             </div>
 
             <!-- BAB 4: JADWAL KERJA -->
+            <!-- BAB 3: JADWAL KERJA -->
             <div class="section-title mt-12">Bab 3: Jadwal Pelaksanaan Pekerjaan (120 Hari Kalender)</div>
             <div class="border p-6 rounded-b-md">
-                <p>Kami mengusulkan jadwal pelaksanaan pekerjaan selama 4 (empat) bulan untuk memastikan setiap tahapan dapat dilaksanakan dengan cermat dan mendalam.</p>
-                <div class="overflow-x-auto mt-4">
-                    <table class="min-w-full text-sm text-center">
-                        <thead class="font-bold" style="background-color: var(--uisi-gray); color: white;">
+                <p class="text-justify">Kami mengusulkan jadwal pelaksanaan pekerjaan selama 4 (empat) bulan untuk memastikan setiap tahapan dapat dilaksanakan dengan cermat dan mendalam.</p>
+                <div class="overflow-x-auto mt-6">
+                    <table class="min-w-full text-xs text-center border-collapse">
+                        <thead style="background-color: var(--uisi-gray); color: white;">
                             <tr>
-                                <td class="p-2 border" rowspan="2">KEGIATAN</td>
-                                <td class="p-2 border" colspan="4">BULAN 1</td>
-                                <td class="p-2 border" colspan="4">BULAN 2</td>
-                                <td class="p-2 border" colspan="4">BULAN 3</td>
-                                <td class="p-2 border" colspan="4">BULAN 4</td>
+                                <td class="p-2 border border-gray-300 font-bold align-middle" rowspan="2">KEGIATAN</td>
+                                <td class="p-2 border border-gray-300 font-bold" colspan="4">BULAN 1</td>
+                                <td class="p-2 border border-gray-300 font-bold" colspan="4">BULAN 2</td>
+                                <td class="p-2 border border-gray-300 font-bold" colspan="4">BULAN 3</td>
+                                <td class="p-2 border border-gray-300 font-bold" colspan="4">BULAN 4</td>
                             </tr>
                             <tr>
-                                <script>for(let m=1;m<=4;m++) for(let w=1;w<=4;w++) document.write(`<td class="p-2 border">${w}</td>`);</script>
+                                <script>for(let m=1;m<=4;m++) for(let w=1;w<=4;w++) document.write(`<td class="p-1 border border-gray-300 w-8">${w}</td>`);</script>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr><td class="p-2 border text-left font-bold" style="background-color: var(--uisi-light-gray);" colspan="17">Tahap 1: Persiapan & Desain Riset</td></tr>
+                        <tbody class="bg-white">
+                            <!-- Tahap 1 -->
+                            <tr class="font-bold" style="background-color: var(--uisi-light-gray);">
+                                <td class="p-2 border border-gray-300 text-left" colspan="17">Tahap 1: Persiapan & Desain Riset</td>
+                            </tr>
                             <tr>
-                                <td class="p-2 border text-left pl-4">Kick-off Meeting & Finalisasi Instrumen</td>
-                                <td class="p-2 border" style="background-color: #fca5a5;" colspan="2"></td><td class="p-2 border" colspan="14"></td>
+                                <td class="p-2 border border-gray-300 text-left">Kick-off Meeting & Finalisasi Instrumen</td>
+                                <td class="gantt-bar border-t border-b border-gray-300" colspan="2"></td><td class="border border-gray-300" colspan="14"></td>
                             </tr>
-                            <tr><td class="p-2 border text-left font-bold" style="background-color: var(--uisi-light-gray);" colspan="17">Tahap 2: Pengumpulan Data Lapangan</td></tr>
+                            <!-- Tahap 2 -->
+                            <tr class="font-bold" style="background-color: var(--uisi-light-gray);">
+                                <td class="p-2 border border-gray-300 text-left" colspan="17">Tahap 2: Pengumpulan Data Lapangan</td>
+                            </tr>
                             <tr>
-                                <td class="p-2 border text-left pl-4">Survei & Wawancara Mendalam</td>
-                                <td class="p-2 border" colspan="2"></td><td class="p-2 border" style="background-color: #fca5a5;" colspan="6"></td><td class="p-2 border" colspan="8"></td>
+                                <td class="p-2 border border-gray-300 text-left">Survei & Wawancara Mendalam</td>
+                                <td class="border border-gray-300" colspan="2"></td><td class="gantt-bar border-t border-b border-gray-300" colspan="6"></td><td class="border border-gray-300" colspan="8"></td>
                             </tr>
-                            <tr><td class="p-2 border text-left font-bold" style="background-color: var(--uisi-light-gray);" colspan="17">Tahap 3: Analisis Data & Permodelan</td></tr>
-                             <tr>
-                                <td class="p-2 border text-left pl-4">Analisis Multiaspek & Uji Kelayakan</td>
-                                <td class="p-2 border" colspan="6"></td><td class="p-2 border" style="background-color: #fca5a5;" colspan="6"></td><td class="p-2 border" colspan="4"></td>
-                            </tr>
-                            <tr><td class="p-2 border text-left font-bold" style="background-color: var(--uisi-light-gray);" colspan="17">Tahap 4: Pelaporan</td></tr>
-                             <tr>
-                                <td class="p-2 border text-left pl-4">Penyusunan & Diskusi Laporan Draft</td>
-                                <td class="p-2 border" colspan="11"></td><td class="p-2 border" style="background-color: #fca5a5;" colspan="3"></td><td class="p-2 border" colspan="2"></td>
+                            <!-- Tahap 3 -->
+                            <tr class="font-bold" style="background-color: var(--uisi-light-gray);">
+                                <td class="p-2 border border-gray-300 text-left" colspan="17">Tahap 3: Analisis Data & Permodelan</td>
                             </tr>
                              <tr>
-                                <td class="p-2 border text-left pl-4">Finalisasi & Penyerahan Laporan Akhir</td>
-                                <td class="p-2 border" colspan="14"></td><td class="p-2 border" style="background-color: #fca5a5;" colspan="2"></td>
+                                <td class="p-2 border border-gray-300 text-left">Analisis Multiaspek & Uji Kelayakan</td>
+                                <td class="border border-gray-300" colspan="6"></td><td class="gantt-bar border-t border-b border-gray-300" colspan="6"></td><td class="border border-gray-300" colspan="4"></td>
+                            </tr>
+                            <!-- Tahap 4 -->
+                            <tr class="font-bold" style="background-color: var(--uisi-light-gray);">
+                                <td class="p-2 border border-gray-300 text-left" colspan="17">Tahap 4: Pelaporan</td>
+                            </tr>
+                             <tr>
+                                <td class="p-2 border border-gray-300 text-left">Penyusunan & Diskusi Laporan Draft</td>
+                                <td class="border border-gray-300" colspan="11"></td><td class="gantt-bar border-t border-b border-gray-300" colspan="3"></td><td class="border border-gray-300" colspan="2"></td>
+                            </tr>
+                             <tr>
+                                <td class="p-2 border border-gray-300 text-left">Finalisasi & Penyerahan Laporan Akhir</td>
+                                <td class="border border-gray-300" colspan="14"></td><td class="gantt-bar border-t border-b border-gray-300" colspan="2"></td>
                             </tr>
                         </tbody>
                     </table>
