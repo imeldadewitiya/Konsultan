@@ -57,6 +57,56 @@
             border-radius: 0 4px 4px 0;
         }
 
+        /* --- CSS untuk Alur Tahapan --- */
+        .alur-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .tahapan-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 0.5rem;
+        }
+        .tahapan-nomor {
+            width: 3.5rem; /* 56px */
+            height: 3.5rem; /* 56px */
+            border-radius: 9999px;
+            background-color: #fee2e2; /* red-100 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-width: 2px;
+            border-color: #fecaca; /* red-200 */
+            font-size: 1.5rem; /* 24px */
+            font-weight: 600;
+            color: var(--uisi-red);
+        }
+        .tahapan-judul {
+            font-weight: 600;
+            font-size: 1rem; /* 16px */
+            margin-top: 1rem;
+            color: var(--uisi-gray);
+        }
+        .tahapan-deskripsi {
+            font-size: 0.875rem; /* 14px */
+            color: #4b5563; /* gray-600 */
+            margin-top: 0.5rem;
+        }
+        .tahapan-panah {
+            display: flex;
+            align-items: center;
+            color: #d1d5db; /* gray-300 */
+            margin-top: 1.75rem; /* Sesuaikan agar sejajar dengan lingkaran */
+            flex-shrink: 0;
+            padding: 0 0.5rem;
+        }
+
         @media print {
             body {
                 background-color: white !important;
@@ -85,7 +135,17 @@
                 border-left-color: var(--uisi-red) !important;
                 color: var(--uisi-gray) !important;
             }
-            
+            .alur-container {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 2rem !important;
+            }
+            .tahapan-panah {
+                display: none !important;
+            }
+            .tahapan-item {
+                padding: 0 !important;
+            }
         }
     </style>
 </head>
@@ -151,62 +211,54 @@
                 <div class="subsection-title">2.1 Alur dan Tahapan Pelaksanaan</div>
                 <p class="text-justify">Untuk menjamin kedalaman dan objektivitas analisis, pelaksanaan studi akan melalui empat tahapan utama yang terstruktur dan berurutan untuk menghasilkan output yang komprehensif:</p>
                 
-                <!-- Alur Tahapan Vertikal - Dirancang Ulang untuk Print & Screen -->
-                <div class="mt-10 max-w-2xl mx-auto alur-tahapan">
-                    
-                    <!-- Tahap 1 -->
-                    <div class="text-center">
-                        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full border-2" style="border-color: var(--uisi-red);">
-                            <span class="text-2xl font-semibold" style="color: var(--uisi-red);">1</span>
+                <!-- Alur Tahapan Responsif (Horizontal di Layar, Grid 2x2 saat Print) -->
+                <div class="mt-8 alur-tahapan">
+                    <div class="alur-container">
+
+                        <!-- Tahap 1: Persiapan -->
+                        <div class="tahapan-item">
+                            <div class="tahapan-nomor">1</div>
+                            <h3 class="tahapan-judul">Persiapan & Desain Riset</h3>
+                            <p class="tahapan-deskripsi">Melakukan kick-off meeting bersama tim Pemkab Gresik untuk menyamakan persepsi dan finalisasi instrumen survei serta panduan wawancara mendalam.</p>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold" style="color: var(--uisi-gray);">Persiapan & Desain Riset</h3>
-                        <p class="mt-2 text-sm text-gray-700">
-                            Melakukan kick-off meeting bersama tim Pemkab Gresik untuk menyamakan persepsi dan finalisasi instrumen survei serta panduan wawancara mendalam.
-                        </p>
-                    </div>
 
-                    <!-- Konektor -->
-                    <div class="h-12 w-px bg-gray-300 mx-auto my-4"></div>
-
-                    <!-- Tahap 2 -->
-                    <div class="text-center">
-                        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full border-2" style="border-color: var(--uisi-red);">
-                            <span class="text-2xl font-semibold" style="color: var(--uisi-red);">2</span>
+                        <!-- Panah Penghubung -->
+                        <div class="tahapan-panah">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold" style="color: var(--uisi-gray);">Pengumpulan Data</h3>
-                        <p class="mt-2 text-sm text-gray-700">
-                            Melaksanakan survei kuantitatif dan wawancara kualitatif di lapangan, serta mengumpulkan data sekunder dari dinas terkait, BPS, dan sumber kredibel lainnya.
-                        </p>
-                    </div>
 
-                    <!-- Konektor -->
-                    <div class="h-12 w-px bg-gray-300 mx-auto my-4"></div>
-
-                    <!-- Tahap 3 -->
-                    <div class="text-center">
-                        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full border-2" style="border-color: var(--uisi-red);">
-                            <span class="text-2xl font-semibold" style="color: var(--uisi-red);">3</span>
+                        <!-- Tahap 2: Pengumpulan Data -->
+                        <div class="tahapan-item">
+                            <div class="tahapan-nomor">2</div>
+                            <h3 class="tahapan-judul">Pengumpulan Data</h3>
+                            <p class="tahapan-deskripsi">Melaksanakan survei kuantitatif dan wawancara kualitatif di lapangan, serta mengumpulkan data sekunder dari dinas terkait, BPS, dan sumber kredibel lainnya.</p>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold" style="color: var(--uisi-gray);">Analisis & Permodelan</h3>
-                        <p class="mt-2 text-sm text-gray-700">
-                            Mengolah dan menganalisis data yang terkumpul menggunakan lima pilar metodologi, termasuk menyusun model proyeksi finansial dan melakukan analisis risiko.
-                        </p>
-                    </div>
 
-                    <!-- Konektor -->
-                    <div class="h-12 w-px bg-gray-300 mx-auto my-4"></div>
-
-                    <!-- Tahap 4 -->
-                    <div class="text-center">
-                        <div class="w-14 h-14 mx-auto flex items-center justify-center rounded-full border-2" style="border-color: var(--uisi-red);">
-                            <span class="text-2xl font-semibold" style="color: var(--uisi-red);">4</span>
+                        <!-- Panah Penghubung -->
+                        <div class="tahapan-panah">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold" style="color: var(--uisi-gray);">Finalisasi & Pelaporan</h3>
-                        <p class="mt-2 text-sm text-gray-700">
-                            Menyusun laporan draf, melakukan sesi diskusi dan validasi dengan Pemkab Gresik, serta finalisasi laporan akhir beserta ringkasan eksekutif dan rekomendasi.
-                        </p>
-                    </div>
 
+                        <!-- Tahap 3: Analisis -->
+                        <div class="tahapan-item">
+                            <div class="tahapan-nomor">3</div>
+                            <h3 class="tahapan-judul">Analisis & Permodelan</h3>
+                            <p class="tahapan-deskripsi">Mengolah dan menganalisis data yang terkumpul menggunakan lima pilar metodologi, termasuk menyusun model proyeksi finansial dan melakukan analisis risiko.</p>
+                        </div>
+
+                        <!-- Panah Penghubung -->
+                        <div class="tahapan-panah">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </div>
+
+                        <!-- Tahap 4: Pelaporan -->
+                        <div class="tahapan-item">
+                             <div class="tahapan-nomor">4</div>
+                            <h3 class="tahapan-judul">Finalisasi & Pelaporan</h3>
+                            <p class="tahapan-deskripsi">Menyusun laporan draf, melakukan sesi diskusi dan validasi dengan Pemkab Gresik, serta finalisasi laporan akhir beserta ringkasan eksekutif dan rekomendasi.</p>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="subsection-title">2.2 Lima Pilar Ruang Lingkup Kajian</div>
